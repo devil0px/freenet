@@ -13,4 +13,29 @@ class Profile(models.Model):
     code_used = models.BooleanField(_("Code Used"),default=False)
 
     def __str__(self):
-        return self.user.username    
+        return self.user.username 
+    
+
+    # create user -----> crate profile 
+@receiver(post_save,sender=User)       
+def create_profile(sender,instance,created,**kwargs):
+    if created:
+        Profile.objects.create(user=instance)        
+        
+        
+    
+DATA_TYPE=(
+    ('Home','Home'),
+    ('Office','Office'),
+    ('Bussines','Bussines'),
+    ('Academy','Academy'),
+    ('Others','Others'),
+)    
+    
+class UserPhoneNumber(models.Model):
+    user = models.ForeignKey(User,related_name='UserPhone' ,verbose_name=_("User"),on_delete=models.CASCADE)
+    phone_number = models.CharField(_("Phone Number"),max_length=15)
+    type = models.CharField(_("Type"),max_length=10,choices=DATA_TYPE)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.type}"  

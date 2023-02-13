@@ -64,7 +64,8 @@ def orange_100_mg(request):
 
         #print(f'num = {number} | num2 ={number2}| pass = {password}')
         send = add_100mg(number, number2, password)
+        time.sleep(4)
         send2 = delete_100mg(number, number2, password)
-        print('send2')
+        print(send2 )
 
     return redirect('home_scripts')

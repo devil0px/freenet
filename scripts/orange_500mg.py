@@ -60,4 +60,4 @@ def reedeam_500_ora(number,password):
 
 if __name__ == "__main__":
 
-    print(reedeam_500_ora('01220232580','anas01060A@'))
+    print(reedeam_500_ora('01285238180','abdo'))

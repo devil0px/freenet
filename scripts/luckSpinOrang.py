@@ -74,4 +74,4 @@ def luck_spin(number, password):
 
 
 if __name__ == '__main__':
-    luck_spin('01220232580', 'anas01060A@')
+    luck_spin('01285238180', 'abdo')

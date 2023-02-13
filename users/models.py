@@ -8,5 +8,5 @@ from django.contrib.auth.models import PermissionsMixin,  AbstractUser
 
 
 class CustomUser(AbstractUser):
-    num_messages = models.IntegerField(default=10,related_name='users.CustomUser.groups' , on_delete=models.CASCADE )
+    num_messages = models.IntegerField( default=10)
     total_msg_send = models.IntegerField(default=0)

@@ -54,3 +54,8 @@ def add_100mg(number,password):
 
     print(rec)
 
+
+    if __name__ == "__main__":
+
+      print(add_100mg('01220232580','anas01060A@'))
+

@@ -48,7 +48,7 @@ def delete_100mg(number,number2,password):
     "Connection": "Keep-Alive",
     "User-Agent": "okhttp/3.14.9"
     }       
-    json ={"ActionType":"4","channel":{"ChannelName":"MobinilAndMe","Password":"ig3yh*mk5l42@oj7QAR8yF"},"FamilyMemberDial":number2,"lang":"ar","Sharing":[{"SharedAmount":"1","SharingType":5}],"dial":number,"IsEasyLogin":'false',"password":password}
+    json ={"ActionType":"4","channel":{"ChannelName":"MobinilAndMe","Password":"ig3yh*mk5l42@oj7QAR8yF"},"FamilyMemberDial":number2,"lang":"ar","Sharing":[{"SharedAmount":"1","SharingType":5}],"dial":number,"IsEasyLogin":'True',"password":password}
 
     
     rec=requests.post(url, headers=headers, json=json).json()

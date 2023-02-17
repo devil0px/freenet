@@ -1,4 +1,5 @@
 
+
 import hashlib
 import requests, time
 
@@ -6,10 +7,10 @@ import requests, time
 # -----------------------------------
 
 
-def add_100mg(number,number2,password):
+def delete_100mg(number,number2,password):
     url2= "https://services.orange.eg/GetToken.svc/GenerateToken"
     headers2={
-        "Content-Type": "application/json; charset\u003dUTF-8",
+        "Coentent-Type": "application/json; charset\u003dUTF-8",
         "Content-Length": "78",
         "Host": "services.orange.eg",
         "Connection": "Keep-Alive",
@@ -48,12 +49,10 @@ def add_100mg(number,number2,password):
     "Connection": "Keep-Alive",
     "User-Agent": "okhttp/3.14.9"
     }       
-    json ={"ActionType":"2","channel":{"ChannelName":"MobinilAndMe","Password":"ig3yh*mk5l42@oj7QAR8yF"},"FamilyMemberDial":number2,"lang":"ar","Sharing":[{"SharedAmount":"1","SharingType":5}],"dial":number,"IsEasyLogin":'false',"password":password}
+    json ={"ActionType":"4","channel":{"ChannelName":"MobinilAndMe","Password":"ig3yh*mk5l42@oj7QAR8yF"},"FamilyMemberDial":number2,"lang":"ar","Sharing":[{"SharedAmount":"1","SharingType":5}],"dial":number,"IsEasyLogin":'Ture',"password":password}
 
     
     rec=requests.post(url, headers=headers, json=json).json()
-    print (rec)
-   
     if rec == "انت استخدمت البرومو كود النهاردة":
         return False , rec
     else:
@@ -64,5 +63,5 @@ def add_100mg(number,number2,password):
 
     if __name__ == "__main__":
 
-      print(add_100mg('01285238180','abdo'))
+      print(delete_100mg('01285238180','abdo'))
 

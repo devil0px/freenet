@@ -10,6 +10,7 @@ from .forms import DataSend
 from .orange_500mg import reedeam_500_ora
 from .luckSpinOrang import luck_spin
 from .add_100_freemax import add_100mg
+from .delete_number import delete_100mg
 
 ##############################################
 # @login_required(login_url="signup")
@@ -20,7 +21,7 @@ def home_scripts(request):
 
 def orang_500_mg(request):
     if request.method == 'GET':
-        return render(request, 'scripts/tiktok_sub.html')
+        return render(request, 'scripts/OrangeSubmit.html')
 
     if request.method == 'POST':
         number = request.POST['number']
@@ -54,14 +55,16 @@ def orange_100_mg(request):
 
     
     if request.method == 'GET':
-        return render(request, 'scripts/tiktok_sub.html')
+        return render(request, 'scripts/OrangeSubmit.html')
 
     if request.method == 'POST':
         number = request.POST['number']
+        number2 = request.POST['number2']
         password = request.POST['password']
 
-        print(f'num = {number} | pass = {password}')
-        send = add_100mg(number, password)
-        print('send')
+        #print(f'num = {number} | num2 ={number2}| pass = {password}')
+        send = add_100mg(number, number2, password)
+        send2 = delete_100mg(number, number2, password)
+        print('send2')
 
     return redirect('home_scripts')

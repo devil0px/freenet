@@ -1,10 +1,10 @@
 from django.shortcuts import render , redirect
 from .forms import SignupForm , UserActivateForm
-from .models import Profile , UserAddress , UserPhoneNumber
+from .models import Profile , UserPhoneNumber
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from .task import print_welcome
+#from .task import print_welcome
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User
 
@@ -72,12 +72,12 @@ def user_activate(request,username):
 
 
 
-@login_required
+#@login_required
 def profile(request):
-    profile =  Profile.objects.get(user=request.user)
+    profile = Profile.objects.get(user=request.user)
     phone_number = UserPhoneNumber.objects.filter(user=request.user)
-    user_address = UserAddress.objects.filter(user=request.user)
-    return render(request,'registration/profile.html',{'profile':profile,'phone_number':phone_number,'user_address':user_address})
+    #user_address = UserAddress.objects.filter(user=request.user)
+    return render(request,'registration/profile.html',{'profile':profile,'phone_number':phone_number})
 
 
 def wishlist(request):
